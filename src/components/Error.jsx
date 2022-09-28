@@ -5,7 +5,7 @@ function Error(props){
     }
     
     return(
-        <div className={`rounded-lg p-1 static w-1/2 self-center mt-4 ${dynamicStyles}`}>
+        <div className={`rounded-lg p-1 static w-1/2 self-center mt-4 ${dynamicStyles} ${props.customStyles}`}>
             <span className="uppercase font-semibold">{props.children}</span>
         </div>
     )
