@@ -8,12 +8,13 @@ function ExpensesList(){
         name={expense.name}
         amount={expense.amount}
         category={expense.category}
+        date={expense.date}
         />
     })
     
     return(
-        <section className="mt-28 w-3/5 mx-auto flex flex-col items-center gap-4">
-            <h1 className='text-3xl self-start underline decoration-blue-500 mb-2'>Expenses</h1>
+        <section className="mt-28 w-3/5 mx-auto flex flex-col items-center">
+            <h1 className='text-3xl self-start underline decoration-blue-500 mb-4'>Expenses</h1>
             {renderExpenses}
         </section>
     )
