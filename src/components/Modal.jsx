@@ -14,7 +14,8 @@ function Modal(){
             id: window.crypto.randomUUID(),
             name: nameExpense.value,
             amount: Number(amountExpense.value),
-            category: categoryExpense.value
+            category: categoryExpense.value,
+            date: new Date()
         }
         
         if(!expense.name || !expense.amount || !expense.category){
@@ -28,7 +29,7 @@ function Modal(){
     
     }
     return(
-        <div className='absolute bg-black opacity-90 top-0 left-0 right-0 bottom-0'>
+        <div className='overflow-x-hidden overflow-y-auto fixed h-screen bg-black opacity-90 top-0 left-0 right-0 bottom-0'>
             <div className='absolute right-3 top-3' onClick={() => modal.value = false}><img className='rotate-45 h-12' src={PlusIcon} alt="X"/></div>
             <form className='flex flex-col text-white w-1/2 h-screen m-auto justify-center gap-6' onSubmit={handleSubmit}>
                 <legend className='text-4xl text-center underline  decoration-blue-500'>New Expense</legend>
