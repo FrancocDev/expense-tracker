@@ -4,12 +4,15 @@ import PlusIcon from "../assets/plus-icon.svg";
 import Error from "./Error";
 import expenses from "../signals/expenses";
 import editExpense from "../signals/editExpense";
+import budget from "../signals/budget";
 
 function Modal() {
   const [error, setError] = useState(null);
 
   function handleSubmit(event) {
     event.preventDefault();
+    const totalExpensesAmount = expenses.value.reduce((acc,curr) => acc + curr.amount , 0); 
+    const availableBudget = budget.value - totalExpensesAmount;
     const [nameExpense, amountExpense, categoryExpense] = event.target.elements;
     const expense = {
       id: window.crypto.randomUUID(),
@@ -20,7 +23,9 @@ function Modal() {
     };
 
     if (!expense.name || !expense.amount || !expense.category) {
-      setError(true);
+      setError("All fields must be filled");
+    } else if(expense.amount > availableBudget){
+      setError("You can't exceed your budget")
     } else {
       if (Object.keys(editExpense.value).length) {
         const updatedExpenses = expenses.value.map((elem) =>
@@ -110,7 +115,7 @@ function Modal() {
         />
         {error && (
           <Error type="error" customStyles="w-full text-center mt-0">
-            All fields must be filled
+            {error}
           </Error>
         )}
       </form>
