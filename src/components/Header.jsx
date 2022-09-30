@@ -8,7 +8,7 @@ function Header() {
       <span className="pt-10 tracking-wide text-white font-semibold uppercase text-3xl">
         Expense tracker
       </span>
-      {budget.value ? <BudgetOverview /> : <NewExpense />}
+      {Boolean(budget.value) ? <BudgetOverview /> : <NewExpense />}
     </header>
   );
 }
