@@ -89,7 +89,7 @@ function ExpenseResume(props) {
         leadingActions={handleLeading()}
         trailingActions={handleTrailing()}
       >
-        <article className="w-full rounded-md flex justify-between shadow-md p-6 items-center mb-6 self-auto">
+        <article className="w-full rounded-md flex justify-between shadow-md p-6 items-center mb-6 self-auto bg-white">
           <div className="flex gap-4">
             <div
               className={`rounded-full w-16 h-16 flex justify-center content-center ${

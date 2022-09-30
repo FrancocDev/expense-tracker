@@ -3,6 +3,7 @@ import budget from "../signals/budget";
 import { formatToCurrency } from "../helpers";
 import expenses from "../signals/expenses";
 import EditPenIcon from "../assets/pen-to-square.svg";
+import DeleteIcon from "../assets/trash-can.svg";
 import { computed } from "@preact/signals-react";
 import {
   CircularProgressbarWithChildren,
@@ -15,7 +16,18 @@ function BudgetOverview() {
     expenses.value.reduce((prev, curr) => prev + curr.amount, 0)
   );
 
+  function resetApp(){
+    if(window.confirm("Are you sure you want to reset the app?")){
+      expenses.value = [];
+      budget.value = 0;
+    } else {
+      return;
+    }
+  }
+
   return (
+    <div className="relative">
+    <img src={DeleteIcon} alt="Reset application" className="w-4 absolute pt-5 right-0 mr-72 cursor-pointer opacity-70 hover:opacity-100" onClick={resetApp}/>
     <div className="bg-white h-72 rounded-lg mt-10 w-3/5 mx-auto items-center flex flex-row justify-between gap-12 shadow-lg p-20">
         <CircularProgressbarWithChildren
           className="h-52 w-52"
@@ -33,6 +45,7 @@ function BudgetOverview() {
         </span>
       </div>
     </div>
+  </div>
   );
 }
 

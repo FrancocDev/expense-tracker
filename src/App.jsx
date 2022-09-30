@@ -15,12 +15,12 @@ function App() {
   })
 
   return (
-    <>
+    <main className="bg-gray-100">
       <Header />
       {Boolean(budget.value) && <AddExpense />}
       {Boolean(modal.value) && <Modal />}
       {Boolean(expenses.value.length) && <ExpensesList />}
-    </>
+    </main>
   );
 }
 
