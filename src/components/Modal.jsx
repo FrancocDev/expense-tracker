@@ -3,6 +3,7 @@ import modal from "../signals/modal";
 import PlusIcon from "../assets/plus-icon.svg";
 import Error from "./Error";
 import expenses from "../signals/expenses";
+import editExpense from "../signals/editExpense"
 
 function Modal() {
   const [error, setError] = useState(null);
@@ -21,16 +22,22 @@ function Modal() {
     if (!expense.name || !expense.amount || !expense.category) {
       setError(true);
     } else {
+      if (Object.keys(editExpense.value).length) {
+        const updatedExpenses = expenses.value.map(elem => elem.id === editExpense.value.id ? ({...expense, id: editExpense.value.id, date: editExpense.value.date}) : elem)
+        expenses.value = updatedExpenses;
+      } else {
+        expenses.value = [...expenses.value, expense];
+      }
+      editExpense.value = {}
       setError(false);
       modal.value = false;
-      expenses.value = [...expenses.value, expense];
     }
   }
   return (
-    <div className="overflow-x-hidden overflow-y-auto fixed h-screen bg-black opacity-90 top-0 left-0 right-0 bottom-0">
+    <div className="overflow-x-hidden z-50 overflow-y-auto fixed h-screen bg-black opacity-90 top-0 left-0 right-0 bottom-0">
       <div
         className="absolute right-3 top-3"
-        onClick={() => (modal.value = false)}
+        onClick={() => (modal.value = false, editExpense.value = {})}
       >
         <img className="rotate-45 h-12" src={PlusIcon} alt="X" />
       </div>
@@ -39,7 +46,7 @@ function Modal() {
         onSubmit={handleSubmit}
       >
         <legend className="text-4xl text-center underline  decoration-blue-500">
-          New Expense
+          {Object.keys(editExpense.value).length ? "Edit Expense" : "New Expense"}
         </legend>
 
         <section className="flex flex-col gap-1">
@@ -50,6 +57,7 @@ function Modal() {
             id="nameExpense"
             placeholder="Expense name"
             className="p-1 rounded-md pl-3 text-black"
+            defaultValue={editExpense.value["name"]}
           />
         </section>
 
@@ -61,6 +69,7 @@ function Modal() {
             id="amountExpense"
             placeholder="E.g. $120"
             className="p-1 rounded-md pl-3 text-black"
+            defaultValue={editExpense.value["amount"]}
           />
         </section>
 
@@ -70,6 +79,7 @@ function Modal() {
             name="categoryExpense"
             id="categoryExpense"
             className="p-1 rounded-md pl-3 text-black"
+            defaultValue={editExpense.value["category"]}
           >
             <option value="">--- Select one ---</option>
             <option value="savings">Savings</option>

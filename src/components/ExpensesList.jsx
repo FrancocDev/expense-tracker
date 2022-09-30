@@ -6,6 +6,7 @@ function ExpensesList() {
     return (
       <ExpenseResume
         key={expense.id}
+        id={expense.id}
         name={expense.name}
         amount={expense.amount}
         category={expense.category}

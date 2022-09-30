@@ -9,8 +9,6 @@ function BudgetOverview() {
     expenses.value.reduce((prev, curr) => prev + curr.amount, 0)
   );
 
-  console.log(expenses.value);
-
   return (
     <div className="bg-white h-72 rounded-lg mt-10 w-3/5 mx-auto items-center flex flex-row shadow-lg justify-between px-60">
       <div>Grafico</div>
