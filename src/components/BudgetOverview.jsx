@@ -2,6 +2,7 @@ import React from "react";
 import budget from "../signals/budget";
 import { formatToCurrency } from "../helpers";
 import expenses from "../signals/expenses";
+import EditPenIcon from "../assets/pen-to-square.svg";
 import { computed } from "@preact/signals-react";
 import {
   CircularProgressbarWithChildren,
@@ -26,7 +27,7 @@ function BudgetOverview() {
           <span className="font-semibold text-2xl text-gray-500">{((spentValue * 100) / budget.value).toFixed(2)}%</span>
         </CircularProgressbarWithChildren>
       <div className="flex flex-col">
-        <span className="flex items-end gap-2 text-lg text-gray-500 font-medium"><span className="font-bold text-blue-500 text-2xl">Budget: </span>{formatToCurrency(budget.value)}</span>
+        <span className="flex items-end gap-2 text-lg text-gray-500 font-medium"><span className="font-bold text-blue-500 text-2xl">Budget: </span>{formatToCurrency(budget.value)}<img onClick={() => budget.value = 0} className="w-4 h-4 self-center text-blue-500 cursor-pointer" src={EditPenIcon} alt="Edit budget"/></span>
         <span className="flex items-end gap-2 text-lg text-gray-500 font-medium"><span className="font-bold text-blue-500 text-2xl">Spent:</span> {formatToCurrency(Number(spentValue))}</span>
         <span className="flex items-end gap-2 text-lg text-gray-500 font-medium"><span className="font-bold text-blue-500 text-2xl">Available:</span> {formatToCurrency(budget.value - Number(spentValue))}
         </span>
