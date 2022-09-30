@@ -5,8 +5,15 @@ import modal from "./signals/modal";
 import Modal from "./components/Modal";
 import ExpensesList from "./components/ExpensesList";
 import expenses from "./signals/expenses";
+import { effect } from "@preact/signals-react";
+
 
 function App() {
+  effect(()=> {
+    window.localStorage.setItem("expenses", JSON.stringify(expenses.value))
+    window.localStorage.setItem("budget", budget.value)
+  })
+
   return (
     <>
       <Header />
