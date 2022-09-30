@@ -1,5 +1,4 @@
 import filtered from '../signals/filtered'
-import expenses from '../signals/expenses'
 
 function CategoryFilter() {
     function handleSelect(event){
