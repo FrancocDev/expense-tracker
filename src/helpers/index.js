@@ -3,6 +3,9 @@ export function formatToCurrency(value){
 }
 
 export function formatDate(date){
+    if(typeof date === "string"){
+        date = new Date(date)
+    }
     const options = {
       day: '2-digit',
       month: 'long',
