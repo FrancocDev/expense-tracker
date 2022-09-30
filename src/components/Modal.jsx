@@ -3,7 +3,7 @@ import modal from "../signals/modal";
 import PlusIcon from "../assets/plus-icon.svg";
 import Error from "./Error";
 import expenses from "../signals/expenses";
-import editExpense from "../signals/editExpense"
+import editExpense from "../signals/editExpense";
 
 function Modal() {
   const [error, setError] = useState(null);
@@ -23,12 +23,20 @@ function Modal() {
       setError(true);
     } else {
       if (Object.keys(editExpense.value).length) {
-        const updatedExpenses = expenses.value.map(elem => elem.id === editExpense.value.id ? ({...expense, id: editExpense.value.id, date: editExpense.value.date}) : elem)
+        const updatedExpenses = expenses.value.map((elem) =>
+          elem.id === editExpense.value.id
+            ? {
+                ...expense,
+                id: editExpense.value.id,
+                date: editExpense.value.date,
+              }
+            : elem
+        );
         expenses.value = updatedExpenses;
       } else {
         expenses.value = [...expenses.value, expense];
       }
-      editExpense.value = {}
+      editExpense.value = {};
       setError(false);
       modal.value = false;
     }
@@ -37,7 +45,7 @@ function Modal() {
     <div className="overflow-x-hidden z-50 overflow-y-auto fixed h-screen bg-black opacity-90 top-0 left-0 right-0 bottom-0">
       <div
         className="absolute right-3 top-3"
-        onClick={() => (modal.value = false, editExpense.value = {})}
+        onClick={() => ((modal.value = false), (editExpense.value = {}))}
       >
         <img className="rotate-45 h-12" src={PlusIcon} alt="X" />
       </div>
@@ -46,7 +54,9 @@ function Modal() {
         onSubmit={handleSubmit}
       >
         <legend className="text-4xl text-center underline  decoration-blue-500">
-          {Object.keys(editExpense.value).length ? "Edit Expense" : "New Expense"}
+          {Object.keys(editExpense.value).length
+            ? "Edit Expense"
+            : "New Expense"}
         </legend>
 
         <section className="flex flex-col gap-1">

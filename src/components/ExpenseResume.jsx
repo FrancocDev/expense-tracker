@@ -19,7 +19,7 @@ import ShoppingIcon from "../assets/categoryIcons/bag-shopping.svg";
 import OthersIcon from "../assets/categoryIcons/sparkles.svg";
 
 import modal from "../signals/modal";
-import editExpense from "../signals/editExpense"
+import editExpense from "../signals/editExpense";
 import expenses from "../signals/expenses";
 
 const categoryIcons = {
@@ -46,9 +46,9 @@ const categoryColors = {
 
 function ExpenseResume(props) {
   function handleLeading() {
-    function handleSwipe(){
-      modal.value = true
-      editExpense.value = props
+    function handleSwipe() {
+      modal.value = true;
+      editExpense.value = props;
     }
     return (
       <LeadingActions>
@@ -64,8 +64,8 @@ function ExpenseResume(props) {
     );
   }
   function handleTrailing() {
-    function handleSwipe(){
-      expenses.value = expenses.value.filter(elem => elem.id !== props.id)
+    function handleSwipe() {
+      expenses.value = expenses.value.filter((elem) => elem.id !== props.id);
     }
     return (
       <TrailingActions className="">
