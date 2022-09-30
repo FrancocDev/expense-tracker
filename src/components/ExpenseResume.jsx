@@ -20,11 +20,22 @@ const categoryIcons = {
     others: OthersIcon
 }
 
+const categoryColors = {
+    savings: "bg-emerald-500",
+    food: "bg-lime-500",
+    house: "bg-sky-500",
+    bills: "bg-yellow-500",
+    health: "bg-red-500",
+    subscription: "bg-violet-500",
+    shopping: "bg-pink-500",
+    others: "bg-amber-500"
+}
+
 function ExpenseResume(props) {
   return (
     <article className='w-full rounded-md flex justify-between shadow-md p-6 items-center mb-6'>
         <div className='flex gap-4'>
-        <div className='rounded-full bg-blue-300 w-16 h-16'><img className="p-3 border-0" src={categoryIcons[props.category]} alt={props.category} /></div>
+        <div className={`rounded-full w-16 h-16 flex justify-center content-center ${categoryColors[props.category]}`}><img className="p-3 border-0" src={categoryIcons[props.category]} alt={props.category} /></div>
             <div className='flex flex-col'>
                 <span className='uppercase text-sm font-semibold text-gray-500'>{props.category}</span>
                 <span className='text-2xl font-medium'>{props.name}</span>
