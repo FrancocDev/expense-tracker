@@ -83,7 +83,7 @@ function ExpenseResume(props) {
   }
 
   return (
-    <SwipeableList className="w-full">
+    <SwipeableList destructiveCallbackDelay={0} className="w-full">
       <SwipeableListItem
         className="w-full"
         leadingActions={handleLeading()}
