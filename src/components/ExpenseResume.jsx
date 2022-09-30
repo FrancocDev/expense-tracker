@@ -72,6 +72,7 @@ function ExpenseResume(props) {
         <SwipeAction
           className="bg-red-500 text-white mt-0 mb-6 rounded-md font-bold uppercase flex w-full"
           onClick={() => handleSwipe()}
+          destructive={true}
         >
           <span className="self-center justify-self-end text-center ml-4 text-lg">
             Delete
