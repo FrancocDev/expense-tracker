@@ -5,6 +5,7 @@ import modal from "../signals/modal";
 function AddExpense() {
   function openModal() {
     modal.value = true;
+    console.log("Click on add expense")
   }
 
   return (

@@ -7,6 +7,7 @@ function NewExpense() {
 
   function handleSubmit(event) {
     event.preventDefault();
+    console.log("Submit Budget")
     const budgetValue = Number(event.target["budgetValue"].value);
 
     if (budgetValue === 0) {
