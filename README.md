@@ -1,7 +1,8 @@
 ## Currently not available the live preview due to a bug in Vite that makes builds not reactive to signals :( 
 
+---
 
-#Expense Tracker
+# Expense Tracker
 
 This is a project to track expenses that uses React, tailwind and the new Preact signals to learn about it and because I think that is so good and much more intuitive to handle global state than other solutions.
 
