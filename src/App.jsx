@@ -7,12 +7,11 @@ import ExpensesList from "./components/ExpensesList";
 import expenses from "./signals/expenses";
 import { effect } from "@preact/signals-react";
 
-
 function App() {
-  effect(()=> {
-    window.localStorage.setItem("expenses", JSON.stringify(expenses.value))
-    window.localStorage.setItem("budget", budget.value)
-  })
+  effect(() => {
+    window.localStorage.setItem("expenses", JSON.stringify(expenses.value));
+    window.localStorage.setItem("budget", budget.value);
+  });
 
   return (
     <main className="bg-gray-100">

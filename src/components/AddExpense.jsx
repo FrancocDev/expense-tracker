@@ -1,11 +1,9 @@
 import React from "react";
-import PlusIcon from "../assets/plus-icon.svg";
 import modal from "../signals/modal";
 
 function AddExpense() {
   function openModal() {
     modal.value = true;
-    console.log("Click on add expense")
   }
 
   return (

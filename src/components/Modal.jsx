@@ -11,7 +11,10 @@ function Modal() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    const totalExpensesAmount = expenses.value.reduce((acc,curr) => acc + curr.amount , 0); 
+    const totalExpensesAmount = expenses.value.reduce(
+      (acc, curr) => acc + curr.amount,
+      0
+    );
     const availableBudget = budget.value - totalExpensesAmount;
     const [nameExpense, amountExpense, categoryExpense] = event.target.elements;
     const expense = {
@@ -24,8 +27,8 @@ function Modal() {
 
     if (!expense.name || !expense.amount || !expense.category) {
       setError("All fields must be filled");
-    } else if(expense.amount > availableBudget){
-      setError("You can't exceed your budget")
+    } else if (expense.amount > availableBudget) {
+      setError("You can't exceed your budget");
     } else {
       if (Object.keys(editExpense.value).length) {
         const updatedExpenses = expenses.value.map((elem) =>
