@@ -13,10 +13,6 @@ function App() {
     window.localStorage.setItem("expenses", JSON.stringify(expenses.value))
     window.localStorage.setItem("budget", budget.value)
   })
-  
-  console.log({modal: modal.value})
-  console.log({expenses: expenses.value})
-  console.log({budget: budget.value})
 
   return (
     <main className="bg-gray-100">
