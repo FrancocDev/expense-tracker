@@ -30,10 +30,10 @@ function BudgetOverview() {
       <img
         src={DeleteIcon}
         alt="Reset application"
-        className="w-4 absolute pt-5 right-0 mr-72 cursor-pointer opacity-70 hover:opacity-100"
+        className="w-4 absolute pt-5 right-0 mr-12 md:mr-24 lg:mr-72 cursor-pointer opacity-70 hover:opacity-100"
         onClick={resetApp}
       />
-      <div className="bg-white h-72 rounded-lg mt-10 w-3/5 mx-auto items-center flex flex-row justify-between gap-12 shadow-lg p-20">
+      <div className="bg-white h-auto lg:h-72 rounded-lg mt-10 w-4/5 lg:w-3/5 mx-auto items-center flex flex-col md:flex-row justify-between gap-4 md:gap-12 shadow-lg p-8 md:p-20">
         <CircularProgressbarWithChildren
           className="h-52 w-52"
           value={spentValue}

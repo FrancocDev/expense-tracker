@@ -89,10 +89,10 @@ function ExpenseResume(props) {
         leadingActions={handleLeading()}
         trailingActions={handleTrailing()}
       >
-        <article className="w-full rounded-md flex justify-between shadow-md p-6 items-center mb-6 self-auto bg-white">
-          <div className="flex gap-4">
+        <article className="w-full rounded-md flex justify-between shadow-md p-2 md:p-6 items-center mb-4 md:mb-6 self-auto bg-white">
+          <div className="flex gap-2 md:gap-4 self-center justify-self-center w-full">
             <div
-              className={`rounded-full w-16 h-16 flex justify-center content-center ${
+              className={`rounded-full w-12 h-12 md:w-16 md:h-16 flex self-center shrink-0 justify-center content-center ${
                 categoryColors[props.category]
               }`}
             >
@@ -103,16 +103,16 @@ function ExpenseResume(props) {
               />
             </div>
             <div className="flex flex-col">
-              <span className="uppercase text-sm font-semibold text-gray-500">
+              <span className="uppercase text-xs md:text-sm font-semibold text-gray-500">
                 {props.category}
               </span>
-              <span className="text-2xl font-medium">{props.name}</span>
-              <span className="text-sm font-light">
+              <span className="text-lg md:text-2xl font-medium">{props.name}</span>
+              <span className="text-xs md:text-sm font-light">
                 {formatDate(props.date)}
               </span>
             </div>
           </div>
-          <span className="font-medium text-xl">
+          <span className="font-medium text-lg md:text-xl shrink-0">
             {formatToCurrency(props.amount)}
           </span>
         </article>

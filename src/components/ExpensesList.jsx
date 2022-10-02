@@ -20,7 +20,7 @@ function ExpensesList() {
   });
 
   return (
-    <section className="mt-28 w-3/5 mx-auto flex flex-col items-center">
+    <section className="mt-52 lg:mt-28 w-4/5 lg:w-3/5 mx-auto flex flex-col items-center">
       <CategoryFilter />
       <h1 className="text-3xl self-start underline decoration-blue-500 mb-4">
         Expenses

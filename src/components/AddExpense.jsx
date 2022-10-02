@@ -9,7 +9,7 @@ function AddExpense() {
   return (
     <div
       onClick={openModal}
-      className="fixed right-4 bottom-4  bg-blue-500 rounded-full p-3 text-center  stroke-white fill-white"
+      className="fixed right-4 bottom-4  bg-blue-500 rounded-full p-3 text-center  stroke-white fill-white z-50"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
