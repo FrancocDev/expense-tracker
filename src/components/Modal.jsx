@@ -58,7 +58,7 @@ function Modal() {
         <img className="rotate-45 h-12" src={PlusIcon} alt="X" />
       </div>
       <form
-        className="flex flex-col text-white w-1/2 h-screen m-auto justify-center gap-6"
+        className="flex flex-col text-white w-3/4 md:w-1/2 h-screen m-auto justify-center gap-6"
         onSubmit={handleSubmit}
       >
         <legend className="text-4xl text-center underline  decoration-blue-500">
