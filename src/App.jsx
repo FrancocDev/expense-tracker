@@ -5,7 +5,8 @@ import modal from "./signals/modal";
 import Modal from "./components/Modal";
 import ExpensesList from "./components/ExpensesList";
 import expenses from "./signals/expenses";
-import { effect } from "@preact/signals-react";
+import { effect} from "@preact/signals-react";
+import { useSignals } from "@preact/signals-react/runtime";
 
 function App() {
   effect(() => {
@@ -13,6 +14,7 @@ function App() {
     window.localStorage.setItem("budget", budget.value);
   });
 
+  useSignals()
   return (
     <main className="bg-gray-100">
       <Header />
